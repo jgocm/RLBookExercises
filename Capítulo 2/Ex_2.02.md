@@ -57,4 +57,36 @@ No quarto passo é usado uma ação 'e' pois  a melhor ação poderia ser 3 ou 4
 
 Valoração dos estados S1 = -1, S2 = 1/3, S3 = 0, S4 = 0 ----> Ação tomada = 3
 No quinto passo é usado uma ação 'e' pois  a melhor ação é 2
+
+```
+
+---
+Resposta 4:
+
+```
+Conjunto de Ações e Recompensas:
+A1 = 1; R1 = -1
+A2 = 2; R2 = 1
+A3 = 2; R3 = -2
+A4 = 2; R4 = 2
+A5 = 3; R5 = 0
+
+Computando as qualidades das ações a cada iteração:
+- t=0: Q(a)=0, para todos os valores de a
+- t=1: atualiza o valor Q(a=1)=-1
+- t=2: atualiza o valor Q(a=2)=1
+- t=3: atualiza o valor Q(a=2)=(1-2)/2=-0,5
+- t=4: atualiza o valor Q(a=2)=(1-2+2)/3=0,333
+- t=5: mantem o valor Q(a=3)=0
+
+Assim, podemos computar a seguinte tabela com os valores de Qt(a):
+|     | Qt(a=1) | Qt(a=2) | Qt(a=3) | Qt(a=4) |
+|:---:|:-------:|:-------:|:-------:|:-------:|
+| t=0 |    0    |    0    |    0    |    0    | a=1 =>   Ação tomada aleatoriamente => pode ter ocorrido uma ação ε 
+| t=1 |    -1   |    0    |    0    |    0    | a=2 =>   Ação tomada aleatoriamente entre as 3 gulosas => pode ter ocorrido uma ação ε 
+| t=2 |    -1   |    1    |    0    |    0    | a=2 =>   Escolhe a ação gulosa => pode ter ocorrido uma ação ε 
+| t=3 |    -1   |   -0,5  |    0    |    0    | a=2 =>   Escolhe ação não-gulosa => com certeza ocorreu uma ação ε 
+| t=4 |    -1   |  0,333  |    0    |    0    | a=3 =>   Escolhe ação não-gulosa => com certeza ocorreu uma ação ε 
+| t=5 |    -1   |  0,333  |    0    |    0    |
+
 ```
